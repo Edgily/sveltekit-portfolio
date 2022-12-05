@@ -1,0 +1,26 @@
+// Portfolio Colours
+$purple: rgb(39, 21, 33);
+$white: rgb(244, 229, 236);
+$transp: rgba(244, 229, 236, 0.1);
+$orange: rgb(254, 103, 3);
+$blue: rgb(7, 230, 220);
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	width: 100vw;
+	height: 100vh;
+	background-color: $purple;
+
+	color: $white;
+	font-family: 'Courier Prime', Courier, monospace;
+	font-size: 16px
+}
+
+h1 {
+	font-family: Courier;
+}
