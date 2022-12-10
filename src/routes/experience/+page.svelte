@@ -1,5 +1,12 @@
 <script lang="ts">
-import Content from '../../components/Content.svelte'
+	import Content from '../../components/Content.svelte';
+
+	import { pathName } from '../../stores';
+	import { onMount } from 'svelte';
+
+	onMount(() => {
+		pathName.set('/experience');
+	});
 </script>
 
 <Content>

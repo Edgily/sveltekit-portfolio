@@ -1,7 +1,16 @@
+<script lang="ts">
+	import Icon from './Icon.svelte';
+	import { pathName } from '../stores';
+</script>
+
 <nav id="navwrapper">
 	<nav id="nav">
-		<a href="/">home.</a>
-		<a href="experience">experience.</a>
+		<a href="/" class={$pathName === '/' ? 'nav-link active' : 'nav-link'}
+			><Icon iconType={'user'} /></a
+		>
+		<a href="/experience" class={$pathName === '/experience' ? 'nav-link active' : 'nav-link'}
+			><Icon iconType={'briefcase'} /></a
+		>
 	</nav>
 </nav>
 
@@ -13,28 +22,57 @@
 		bottom: 0;
 		left: 0;
 		width: 100vw;
+		overflow: hidden;
+		display: flex;
+		justify-content: center;
 
 		#nav {
+			margin: 0 8vw;
+			width: min-content;
+			height: min-content;
+			height: 3.5rem;
+			border-top-left-radius: 1rem;
+			border-top-right-radius: 1rem;
+
 			display: flex;
-			padding-left: 10vw;
-			gap: 1rem;
-			border-top: 1px solid $purple;
-			box-shadow: -5px 0px 10px 2px $purple;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			flex-wrap: nowrap;
 
-			backdrop-filter: blur(10px);
+			background-color: $transp;
+			backdrop-filter: blur(0.2rem);
 
-			a {
-				color: $white;
-				font-size: 2rem;
-				font-weight: bold;
-				text-decoration: none;
-				text-shadow: 2px 2px 2px $purple, -2px -2px 2px $purple, 2px -2px 2px $purple,
-					-2px 2px 2px $purple;
+			.nav-link {
+				padding: 0.7rem;
+				padding-bottom: 0.2rem;
 
-				transition: color 300ms ease-out;
+				:global(.icon) {
+					stroke: $white;
+					height: 2rem;
+					width: auto;
+				}
 
-				&:hover, &:focus {
-					color: $blue;
+				&:hover,
+				&:focus,
+				&.active {
+					border-bottom: 4px solid $purple;
+
+					:global(.icon) {
+						animation: 1s forwards colors;
+						@keyframes colors {
+							0% {
+								stroke: $blue;
+							}
+							30% {
+								stroke: $orange;
+								transform: translateY(-0.1rem);
+							}
+							100% {
+								stroke: $blue;
+							}
+						}
+					}
 				}
 			}
 		}

@@ -1,26 +1,46 @@
 // Portfolio Colours
 $purple: rgb(39, 21, 33);
 $white: rgb(244, 229, 236);
-$transp: rgba(244, 229, 236, 0.1);
+$transp: rgba(39, 21, 33, 0.5);
 $orange: rgb(254, 103, 3);
-$blue: rgb(7, 230, 220);
+$blue: rgb(56, 202, 228);
 
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+
+	color: $white;
+	font-family: 'Open Sans Variable', sans-serif;
+	font-size: clamp(16px, 1rem + 1vmin, 1.5rem);
+	text-shadow: 2px 2px 2px $purple, -2px -2px 2px $purple, 2px -2px 2px $purple,
+		-2px 2px 2px $purple;
 }
 
 body {
 	width: 100vw;
 	height: 100vh;
 	background-color: $purple;
-
-	color: $white;
-	font-family: 'Courier Prime', Courier, monospace;
-	font-size: 16px
 }
 
 h1 {
-	font-family: Courier;
+	color: $white;
+	font-size: clamp(2rem, 2rem + 1vmin, 4rem);
+}
+
+.hover {
+	&:hover {
+		animation: 1s forwards colors;
+		@keyframes colors {
+			0% {
+				color: $blue;
+			}
+			30% {
+				color: $orange;
+			}
+			100% {
+				color: $blue;
+			}
+		}
+	}
 }

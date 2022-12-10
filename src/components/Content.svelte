@@ -1,19 +1,6 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
 
-	// Scrollbar Width code
-	import { onMount } from 'svelte';
-	let content: any;
-	onMount(() => {
-		const scrollbarWidth = content.offsetWidth - content.clientWidth;
-		const navWrapper = document.getElementById('navwrapper');
-
-		if (navWrapper) {
-			navWrapper.style.paddingRight = `${scrollbarWidth}px`;
-		}
-	});
-	// End Scrollbar Width code
-
 	// animation props
 	//  {
 	// 	delay?: number,
@@ -24,12 +11,7 @@
 	//  }
 </script>
 
-<main
-	bind:this={content}
-	class="content"
-	in:fade={{ delay: 500, duration: 300 }}
-	out:fade={{ duration: 300 }}
->
+<main class="content" in:fade={{ delay: 1000, duration: 400 }} out:fade={{ duration: 400 }}>
 	<slot />
 </main>
 
@@ -39,8 +21,9 @@
 		width: 100%;
 		height: 100%;
 		padding: 10vw;
+		padding-bottom: 6rem;
 		overflow-x: hidden;
 		overflow-y: auto;
-		backdrop-filter: blur(4px);
+		// backdrop-filter: blur(4px);
 	}
 </style>

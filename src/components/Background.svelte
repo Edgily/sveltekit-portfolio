@@ -12,7 +12,7 @@
 </script>
 
 {#await preload(src) then _}
-	<img id="bg" {src} in:fade={{ duration: 1000 }} alt="cool night time street" />
+	<img id="bg" {src} in:fade={{ duration: 1000 }} alt="asian street at night" />
 {/await}
 
 <style lang="scss">
