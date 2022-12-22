@@ -1,9 +1,14 @@
 // Portfolio Colours
 $purple: rgb(39, 21, 33);
-$white: rgb(244, 229, 236);
 $transp: rgba(39, 21, 33, 0.5);
+$white: rgb(244, 229, 236);
 $orange: rgb(254, 103, 3);
 $blue: rgb(56, 202, 228);
+
+:global(html) {
+	scroll-behavior: smooth;
+	box-sizing: border-box;
+}
 
 * {
 	margin: 0;
@@ -11,36 +16,146 @@ $blue: rgb(56, 202, 228);
 	box-sizing: border-box;
 
 	color: $white;
-	font-family: 'Open Sans Variable', sans-serif;
-	font-size: clamp(16px, 1rem + 1vmin, 1.5rem);
-	text-shadow: 2px 2px 2px $purple, -2px -2px 2px $purple, 2px -2px 2px $purple,
-		-2px 2px 2px $purple;
+	font-family: 'Fira Code', monospace;
+	font-size: 1rem;
+	font-size: clamp(1rem, 0.85rem + 0.625vw, 1.25rem);
+	text-decoration: none;
 }
 
 body {
 	width: 100vw;
-	height: 100vh;
+	height: min-content;
 	background-color: $purple;
 }
 
-h1 {
-	color: $white;
-	font-size: clamp(2rem, 2rem + 1vmin, 4rem);
+::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+	background-color: $purple;
 }
 
-.hover {
-	&:hover {
-		animation: 1s forwards colors;
-		@keyframes colors {
-			0% {
-				color: $blue;
+::-webkit-scrollbar {
+	width: 0.6rem;
+	background-color: $purple;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 0.2rem;
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+	background-color: $white;
+}
+
+h1 {
+	font-size: 1.5rem;
+	font-size: clamp(1.5rem, 0.5999999999999999rem + 3.7500000000000004vw, 3rem);
+	font-weight: bold;
+	// text-shadow: 2px 2px 2px $purple, -2px -2px 2px $purple, 2px -2px 2px $purple,
+	// 	-2px 2px 2px $purple;
+}
+
+h2 {
+	font-size: 1.2rem;
+	font-size: clamp(1.2rem, 1.08rem + 0.49999999999999994vw, 1.4rem);
+	font-weight: bold;
+	// text-shadow: 2px 2px 2px $purple, -2px -2px 2px $purple, 2px -2px 2px $purple,
+	// 	-2px 2px 2px $purple;
+}
+
+h3 {
+	font-size: 1rem;
+	font-size: clamp(1rem, 0.85rem + 0.625vw, 1.25rem);
+	font-weight: bold;
+}
+
+.btn-blank {
+	border: none;
+	background: none;
+	height: min-content;
+	width: min-content;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0;
+
+	&:hover,
+	&:focus {
+		svg {
+			animation: 1s forwards colors;
+			@keyframes colors {
+				0% {
+					stroke: $blue;
+				}
+				30% {
+					stroke: $orange;
+					transform: translateY(-0.1rem);
+				}
+				100% {
+					stroke: $blue;
+				}
 			}
-			30% {
-				color: $orange;
-			}
+		}
+	}
+}
+
+.icon {
+	stroke: $white;
+	height: clamp(2rem, 1.4rem + 2.5vw, 3rem);
+	width: auto;
+}
+
+.stacked-container {
+	display: grid;
+
+	* {
+		grid-column: 1 / -1;
+		grid-row: 1 / -1;
+		text-align: center;
+	}
+
+	.stacked-top {
+		z-index: 1;
+
+		color: $white;
+	}
+
+	.stacked-bot {
+		z-index: 0;
+
+		position: relative;
+		top: 0.06em;
+		left: -0.1em;
+
+		color: transparent;
+		-webkit-text-fill-color: transparent;
+
+		background: linear-gradient(-45deg, $orange, $blue);
+		background-size: 200% 200%;
+		background-clip: text;
+		-webkit-background-clip: text;
+		animation: gradient 5s ease infinite;
+
+		@keyframes gradient {
+			0%,
 			100% {
-				color: $blue;
+				background-position: 0% 50%;
 			}
+			50% {
+				background-position: 100% 50%;
+			}
+		}
+	}
+}
+
+.show {
+	animation: show 500ms 200ms ease-in-out forwards;
+	@keyframes show {
+		0% {
+			transform: translateX(5vmin) scale(1);
+			opacity: 0;
+		}
+		100% {
+			transform: translateX(0vmin) scale(1);
+			opacity: 1;
 		}
 	}
 }

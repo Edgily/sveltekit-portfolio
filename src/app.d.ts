@@ -7,3 +7,8 @@ declare namespace App {
 	// interface PageData {}
 	// interface Platform {}
 }
+
+declare module '@loscrackitos/svelte-typed-js'
+declare module 'svelte-typed-js';
+declare module 'wordcloud';
+declare module 'svelte-d3-cloud';

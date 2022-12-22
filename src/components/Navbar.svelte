@@ -1,16 +1,43 @@
 <script lang="ts">
 	import Icon from './Icon.svelte';
-	import { pathName } from '../stores';
 </script>
 
 <nav id="navwrapper">
 	<nav id="nav">
-		<a href="/" class={$pathName === '/' ? 'nav-link active' : 'nav-link'}
-			><Icon iconType={'user'} /></a
+		<button
+			class="btn-blank"
+			on:click={() => {
+				const element = document.getElementById('me');
+
+				element?.scrollIntoView({
+					behavior: 'smooth'
+				});
+			}}
 		>
-		<a href="/experience" class={$pathName === '/experience' ? 'nav-link active' : 'nav-link'}
-			><Icon iconType={'briefcase'} /></a
+			<Icon iconType="user" />
+		</button>
+		<button
+			class="btn-blank"
+			on:click={() => {
+				const element = document.getElementById('experience');
+
+				element?.scrollIntoView({
+					behavior: 'smooth'
+				});
+			}}
 		>
+			<Icon iconType="briefcase" />
+		</button>
+		<form action="https://www.linkedin.com/in/edgily/" target="_blank">
+			<button class="btn-blank" type="submit">
+				<Icon iconType="linkedin" />
+			</button>
+		</form>
+		<form action="https://github.com/edgily/" target="_blank">
+			<button class="btn-blank" type="submit">
+				<Icon iconType="github" />
+			</button>
+		</form>
 	</nav>
 </nav>
 
@@ -18,8 +45,8 @@
 	@import '../app.scss';
 
 	#navwrapper {
-		position: absolute;
-		bottom: 0;
+		position: fixed;
+		bottom: 5vh;
 		left: 0;
 		width: 100vw;
 		overflow: hidden;
@@ -30,51 +57,18 @@
 			margin: 0 8vw;
 			width: min-content;
 			height: min-content;
-			height: 3.5rem;
-			border-top-left-radius: 1rem;
-			border-top-right-radius: 1rem;
+			border-radius: 1rem;
 
 			display: flex;
 			flex-direction: row;
 			justify-content: center;
 			align-items: center;
 			flex-wrap: nowrap;
+			gap: clamp(2rem, 1.4rem + 2.5vw, 3rem);
+			padding: 0.3rem 0.5rem;
 
 			background-color: $transp;
 			backdrop-filter: blur(0.2rem);
-
-			.nav-link {
-				padding: 0.7rem;
-				padding-bottom: 0.2rem;
-
-				:global(.icon) {
-					stroke: $white;
-					height: 2rem;
-					width: auto;
-				}
-
-				&:hover,
-				&:focus,
-				&.active {
-					border-bottom: 4px solid $purple;
-
-					:global(.icon) {
-						animation: 1s forwards colors;
-						@keyframes colors {
-							0% {
-								stroke: $blue;
-							}
-							30% {
-								stroke: $orange;
-								transform: translateY(-0.1rem);
-							}
-							100% {
-								stroke: $blue;
-							}
-						}
-					}
-				}
-			}
 		}
 	}
 </style>

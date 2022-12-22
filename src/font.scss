@@ -1,46 +1,8 @@
-// font-family: 'Audiowide', cursive;
-// font-family: 'Comfortaa', cursive;
-// font-family: 'Courier Prime', monospace;
-// font-family: 'Press Start 2P', cursive;
-// font-family: 'Silkscreen', cursive;
-// font-family: 'Zen Dots', cursive;
-
-
 @font-face {
-  font-family: 'Open Sans Variable';
-  src: url('/fonts/Open_Sans/OpenSans-VariableFont_wdth,wght.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Audiowide';
-  src: url('/fonts/Audiowide/Audiowide-Regular.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Comfortaa';
-  src: url('/fonts/Comfortaa/Comfortaa-VariableFont_wght.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Courier Prime';
-  src: url('/fonts/Courier_Prime/CourierPrime-Regular.ttf') format('truetype');
+  font-family: 'Open Sans';
+  src: url('/fonts/OpenSans-VariableFont_wdth,wght.ttf') format('truetype');
 }
 @font-face {
-  font-family: 'Courier Prime Bold';
-  src: url('/fonts/Courier_Prime/CourierPrime-Bold.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Press Start 2P';
-  src: url('/fonts/Press_Start_2P/PressStart2P-Regular.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Silkscreen';
-  src: url('/fonts/Silkscreen/Silkscreen-Regular.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Zen Dots';
-  src: url('/fonts/Zen_Dots/ZenDots-Regular.ttf') format('truetype');
+  font-family: 'Fira Code';
+  src: url('/fonts/FiraCode-VariableFont_wght.ttf') format('truetype');
 }
