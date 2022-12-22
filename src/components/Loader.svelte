@@ -11,15 +11,16 @@
 </div>
 
 <style lang="scss">
-	@import '../app.scss';
+	@import "../app.scss";
 
-.wrapper {
-	height: 90%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
+	.wrapper {
+		height: min-content;
+		margin-top: 40vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
 
 	.lds-facebook {
 		display: inline-block;
@@ -27,6 +28,7 @@
 		width: 80px;
 		height: 80px;
 	}
+
 	.lds-facebook div {
 		display: inline-block;
 		position: absolute;
