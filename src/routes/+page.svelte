@@ -1,11 +1,23 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import { fade, blur, fly, slide, scale, draw, crossfade } from 'svelte/transition';
-	import Icon from '../components/Icon.svelte';
-	import WordCloud from '../components/WordCloud.svelte';
+	import { onMount } from "svelte";
+	import {
+		fade,
+		blur,
+		fly,
+		slide,
+		scale,
+		draw,
+		crossfade,
+	} from "svelte/transition";
+	import Icon from "../components/Icon.svelte";
+	import WordCloud from "../components/WordCloud.svelte";
 
-	let sentences = ['Who am I?', 'Just a humble software engineer.', 'Samuel Edge'];
-	let sentence = '';
+	let sentences = [
+		"Who am I?",
+		"Just a humble software engineer.",
+		"Samuel Edge",
+	];
+	let sentence = "";
 
 	async function typingEffect(sentences: string[]) {
 		function waitForMs(ms: number) {
@@ -13,7 +25,7 @@
 		}
 
 		async function typeText(textToType: string) {
-			const letters = textToType.split('');
+			const letters = textToType.split("");
 
 			for (let letter of letters) {
 				await waitForMs(50);
@@ -24,12 +36,12 @@
 		}
 
 		async function deleteText() {
-			const letters = sentence.split('');
+			const letters = sentence.split("");
 
 			while (letters.length > 0) {
 				await waitForMs(20);
 				letters.pop();
-				sentence = letters.join('');
+				sentence = letters.join("");
 			}
 		}
 
@@ -56,9 +68,9 @@
 		(entries) => {
 			entries.forEach((entry) => {
 				if (entry.isIntersecting) {
-					console.log('observed');
-					
-					entry.target.classList.add('show');
+					console.log("observed");
+
+					entry.target.classList.add("show");
 					observer.unobserve(entry.target);
 				}
 			});
@@ -67,7 +79,7 @@
 	);
 
 	onMount(() => {
-		const observed = document.querySelectorAll('.observed');
+		const observed = document.querySelectorAll(".observed");
 
 		observed.forEach((element: any) => {
 			observer.observe(element);
@@ -89,9 +101,9 @@
 				in:fade={{ delay: 11500 }}
 				class="btn-blank"
 				on:click={() => {
-					const element = document.getElementById('experience');
+					const element = document.getElementById("experience");
 					element?.scrollIntoView({
-						behavior: 'smooth'
+						behavior: "smooth",
 					});
 				}}
 			>
@@ -118,45 +130,48 @@
 			</div>
 			<div class="roles observed">
 				<div class="stacked-container">
-					<h2 class="stacked-top sentence role">Junior Full Stack Software Engineer</h2>
-					<h2 class="stacked-bot sentence role">Junior Full Stack Software Engineer</h2>
+					<h2 class="stacked-top sentence role">
+						Junior Full Stack Software Engineer
+					</h2>
+					<h2 class="stacked-bot sentence role">
+						Junior Full Stack Software Engineer
+					</h2>
 				</div>
 				<h3>@ With Juno Ltd</h3>
 
 				<div style="height: 2vmin;" />
 
-				<h3>Key experience</h3>
-
-				<p class="role-desc">
-					Front end pages and components -- Back end API routes -- Stripe integration -- Daily
-					standup -- Kanban board coordination -- Agile way of working -- Code review -- Source
-					control -- Jest testing -- Working in sprints -- Retrospectives -- Project planning
-					sessions.
-				</p>
-
-				<div style="height: 2vmin;" />
-
-				<h3>Key achievements</h3>
-				<p class="role-desc">
-					Created front end interface for Admins to customize a teammate's settings, and created the
-					back end API route to update the database.
-				</p>
-
-				<div style="height: 2vmin;" />
-
-				<p class="role-desc">
-					Conditionally rendered front end birthdays component, showing upcoming birthdays within
-					your team and ways to give them a gift.
-				</p>
-
-				<div style="height: 2vmin;" />
-
-				<p class="role-desc">
-					Batch jobs in AWS Lambda on a schedule to check a user's details in the database and
-					update based on the team's settings.
-				</p>
-
-				<div style="height: 2vmin;" />
+				<ul class="exp-list">
+					<li>
+						Worked on a full stack application with React, TypeScript and Node
+						while collaborating with a diverse team.
+						<br />
+						<br />
+					</li>
+					<li>
+						Gained expertise and mentoring in best coding practices, source
+						control, agile methodologies and TDD.
+						<br />
+						<br />
+					</li>
+					<li>
+						Utilized PostgreSQL databases, Stripe payments and AWS Lambda to
+						enhance the platform.
+						<br />
+						<br />
+					</li>
+					<li>
+						Built components to improve a team admin's ability to manage their
+						employees by giving them more control.
+						<br />
+						<br />
+					</li>
+					<li>
+						Implemented a scheduled batch job using AWS Lambda to automate the
+						reset of various spending budgets.
+					</li>
+				</ul>
+				<div style="height: 4vmin;" />
 			</div>
 
 			<div class="date observed">
@@ -176,32 +191,36 @@
 
 				<div style="height: 2vmin;" />
 
-				<h3>Key experience</h3>
-				<p class="role-desc">
-					Full stack project as part of a team -- Front end projects such as CRUD websites -- Back
-					end projects such as PostgreSQL and Express API servers -- Solo, paired, and team projects
-					-- Working to a schedule and meeting deadlines -- Focus on JavaScript, React, PostgreSQL
-					and Express.
-				</p>
-
-				<div style="height: 2vmin;" />
-
-				<h3>Key achievement</h3>
-
-				<p class="role-desc">
-					A 3 week long full stack project as a team of 5. I was instrumental in guiding my
-					teammates through some aspects of the project with which I was more comfortable, such as
-					the page functionality with React + Next.js and UI creation with Chakra UI.
-				</p>
-
-				<div style="height: 2vmin;" />
+				<ul class="exp-list">
+					<li>
+						Developed numerous web applications with React, PostgreSQL and
+						Express servers; ranging from simple CRUD websites to a three week
+						long full stack project using Next.js in collaboration with a five
+						person team.
+						<br />
+						<br />
+					</li>
+					<li>
+						Utilized Chakra UI library and custom CSS to create an effective and
+						eye-catching user interface for the final project.
+						<br />
+						<br />
+					</li>
+					<li>
+						Led my team through page functionality creation and provided
+						guidance as needed throughout all aspects of development.
+						<br />
+						<br />
+					</li>
+				</ul>
+				<div style="height: 4vmin;" />
 			</div>
 		</div>
 	</div>
 </main>
 
 <style lang="scss">
-	@import '../app.scss';
+	@import "../app.scss";
 
 	main {
 		backdrop-filter: brightness(0.7) blur(0.1rem);
@@ -235,7 +254,7 @@
 	}
 
 	.sentence::after {
-		content: '|';
+		content: "|";
 
 		animation: blink 0.6s linear infinite alternate;
 
@@ -328,6 +347,11 @@
 
 			.role {
 				text-align: left;
+			}
+
+			.exp-list {
+				list-style-position: inside;
+				margin-left: 2vmin;
 			}
 		}
 	}
